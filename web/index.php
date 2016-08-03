@@ -18,7 +18,16 @@ $data['REMOTE_ADDR']=$_SERVER['REMOTE_ADDR'];
 $data['HTTP_X_FORWARDED_FOR']=$_SERVER['HTTP_X_FORWARDED_FOR'];
 
 $data=json_encode($data);
-$res=file_put_contents('data/'.time().'.json',$data);
+
+$config=file_get_contents('../config/acra2kibana.json');
+if(!$config)
+	die('No config file found!');
+$config=json_decode($config,true);
+if(!$config)
+	die('Could not parse config!');
+if(!$config['log'])
+	die('Log location not specified!');
+$res=file_put_contents($config['log'],"\n".$data);
 if($res)
   echo 'data saved';
 else

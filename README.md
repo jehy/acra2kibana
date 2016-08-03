@@ -1,2 +1,2 @@
 # acra2kibana
-ACRA logs to kibana PHP parser
+Saves Android ACRA logs for later usage with kibana
