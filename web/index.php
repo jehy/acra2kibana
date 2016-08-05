@@ -29,7 +29,7 @@ if(!$config['logDir'])
 	die('Log location not specified!');
 if(($config['logDir'][strlen($config['logDir'])-1])!='/')
 	$config['logDir'].='/';
-$res=file_put_contents($config['logDir'].'mvideo.log',"\n".$data);
+$res=file_put_contents($config['logDir'].'mvideo.log',"\n".$data,FILE_APPEND);
 if($res)
   echo 'data saved';
 else
