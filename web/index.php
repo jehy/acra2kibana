@@ -25,9 +25,11 @@ if(!$config)
 $config=json_decode($config,true);
 if(!$config)
 	die('Could not parse config!');
-if(!$config['log'])
+if(!$config['logDir'])
 	die('Log location not specified!');
-$res=file_put_contents($config['log'],"\n".$data);
+if(($config['logDir'][strlen($config['logDir'])-1])!='/')
+	$config['logDir'].='/';
+$res=file_put_contents($config['logDir'].'mvideo.log.json',"\n".$data);
 if($res)
   echo 'data saved';
 else
