@@ -12,7 +12,7 @@ if($n)
 else
     echo('invalid stack trace!');
 if($data['USER_CRASH_DATE'])
-    $data['@timestamp']=substr($data['USER_CRASH_DATE'],0,strpos($data['USER_CRASH_DATE'],'.'));
+    $data['@timestamp']=$data['USER_CRASH_DATE'];
 
 $data['REMOTE_ADDR']=$_SERVER['REMOTE_ADDR'];
 $data['HTTP_X_FORWARDED_FOR']=$_SERVER['HTTP_X_FORWARDED_FOR'];
